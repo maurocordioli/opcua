@@ -169,6 +169,7 @@ func (c *Client) CreateSession(cfg *uasc.SessionConfig) (*Session, error) {
 		SessionName:       fmt.Sprintf("gopcua-%d", time.Now().UnixNano()),
 		ClientNonce:       nonce,
 		ClientCertificate: c.cfg.Certificate,
+		RequestedSessionTimeout: cfg.SessionTimeout,
 	}
 
 	var s *Session
